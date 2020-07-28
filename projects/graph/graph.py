@@ -173,6 +173,12 @@ class Graph:
                     visited.add(edge)
                     return list(visited)
 
+    # in dfs_recursive, when we hit our base case, we need to return it
+    # all the way up
+
+    # when do we want to return from dfs?
+    # when we hit the destination vertex!
+
     def dfs_recursive(self, vertex, destination_vertex, path=[], visited=set()):
         """
         Return a list containing a path from
@@ -196,7 +202,7 @@ class Graph:
                 # if not, recurse with a path
                 result = self.dfs_recursive(
                     neighbor, destination_vertex, path + [neighbor], visited)
-        # if this recursion returns a path,
+                # if this recursion returns a path,
                 if result is not None:
                     # return from here
                     return result
